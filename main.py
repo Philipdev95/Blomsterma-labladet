@@ -3,7 +3,7 @@ import MySQLdb
 import bottle
 from bottle import route, run, template, Bottle, request, redirect
 # connect
-db = MySQLdb.connect(host="127.0.0.1", user="root", passwd="abcd1234", db="projekt", charset="utf8")
+db = MySQLdb.connect(host="localhost", user="root", passwd="abcd1234", db="projekt", charset="utf8")
 # create a cursor
 cursor = db.cursor()
 # execute SQL statement
@@ -19,10 +19,14 @@ def css(main):
     print "css:",main
     return static_file(main,root='./static',mimetype='text/css')
     
-    
 @route("/")
 def start():
     return template("start")
 
-run(host='127.0.0.1', port=8080)
+@route("/article/")
+def article():
+    return template("article")
+
+
+run(host='localhost', port=8080)
 
