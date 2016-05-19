@@ -5,7 +5,7 @@ db = MySQLdb.connect(host="localhost", user="root", passwd="abcd1234", db="proje
 # create a cursor
 cursor = db.cursor()
 # execute SQL statement
-cursor.execute("select Rubrik, Datum, Författare from Artiklar")
+cursor.execute("select Rubrik, Datum, Författare, Artikeltext from Artiklar")
 # get the resultset as a tuple
 result = cursor.fetchall()
 # iterate through resultset
