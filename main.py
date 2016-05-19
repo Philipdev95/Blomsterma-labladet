@@ -16,8 +16,8 @@ for record in result:
 
 @route('<filename:re:.*\.css>',name='static')
 def css(filename):
-print "css:",filename
-return static_file(filename,root='./static',mimetype='text/css')
+    print "css:",filename
+    return static_file(filename,root='./static',mimetype='text/css')
     
     
 @route("/")
