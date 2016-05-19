@@ -23,8 +23,6 @@ return static_file(filename,root='./static',mimetype='text/css')
 @route("/")
 def start():
     return template("start")
-<<<<<<< Updated upstream
-=======
 
 run(host='localhost', port=8080)
->>>>>>> Stashed changes
+
