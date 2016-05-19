@@ -1,7 +1,7 @@
 # *-* coding: utf-8 *-*
 import MySQLdb
 import bottle
-from bottle import route, get, post, run, template, error, static_file, request, redirect, abort, response, app
+from bottle import route, run, template, Bottle, request, redirect
 # connect
 db = MySQLdb.connect(host="localhost", user="root", passwd="abcd1234", db="projekt", charset="utf8")
 # create a cursor
