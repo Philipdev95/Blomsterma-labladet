@@ -14,10 +14,10 @@ result = cursor.fetchall()
 for record in result:
 	print record[0] , record[1], record[2], record[3]
 
-@route('<filename:re:.*\.css>',name='static')
-def css(filename):
-    print "css:",filename
-    return static_file(filename,root='./static',mimetype='text/css')
+@route('<main:re:.*\.css>',name='static')
+def css(main):
+    print "css:",main
+    return static_file(main,root='./static',mimetype='text/css')
     
     
 @route("/")
