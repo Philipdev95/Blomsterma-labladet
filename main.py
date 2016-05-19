@@ -13,3 +13,7 @@ result = cursor.fetchall()
 # iterate through resultset
 for record in result:
 	print record[0] , record[1], record[2], record[3]
+
+@route("/")
+def start():
+    return template("start")
