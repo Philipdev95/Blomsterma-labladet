@@ -14,6 +14,17 @@ result = cursor.fetchall()
 for record in result:
 	print record[0] , record[1], record[2], record[3]
 
+@route('<filename:re:.*\.css>',name='static')
+def css(filename):
+print "css:",filename
+return static_file(filename,root='./static',mimetype='text/css')
+    
+    
 @route("/")
 def start():
     return template("start")
+<<<<<<< Updated upstream
+=======
+
+run(host='localhost', port=8080)
+>>>>>>> Stashed changes

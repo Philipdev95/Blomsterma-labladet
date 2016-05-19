@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <title>Blomstermåla dagblad || Philip & Emma</title>
         <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
-        <link href="DBTprojekt.css" rel="stylesheet" type="text/css">
+        <link href="../static/main.css" rel="stylesheet" type="text/css">
         <script type="text/javascript" src="DBProjekt.js"></script>
     </head>
     <body onload="setUp()">
