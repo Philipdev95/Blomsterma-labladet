@@ -17,3 +17,5 @@ for record in result:
 @route("/")
 def start():
     return template("start")
+
+run(host='localhost', port=8080)
