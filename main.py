@@ -10,4 +10,4 @@ cursor.execute("select Rubrik, Datum, Författare, Artikeltext from Artiklar")
 result = cursor.fetchall()
 # iterate through resultset
 for record in result:
-	print record[0] , record[1], record[2]
+	print record[0] , record[1], record[2], record[3]
