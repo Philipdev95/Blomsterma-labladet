@@ -13,10 +13,11 @@ def print_puff():
     result = cursor.fetchall()
     
     record(Rubrik) = record(Titel)
-
+    record(Ingress) = record(ingressen)
+    
     for record in result:
         print record[0], record[1]
-    return template("start", Rubrik = titel, ingress = record[1])
+    return template("start", Rubrik = titel, Ingress = ingressen)
 
 @route('<main:re:.*\.css>',name='static')
 def css(main):
