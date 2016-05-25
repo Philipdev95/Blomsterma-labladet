@@ -11,9 +11,12 @@ cursor = db.cursor()
 def print_puff():
     cursor.execute("select Rubrik, Ingress from Artiklar limit 10")
     result = cursor.fetchall()
+    
+    record(Rubrik) = record(Titel)
+
     for record in result:
-        print record[0], record[3]
-    return template("start")
+        print record[0], record[1]
+    return template("start", Rubrik = titel, ingress = record[1])
 
 @route('<main:re:.*\.css>',name='static')
 def css(main):
