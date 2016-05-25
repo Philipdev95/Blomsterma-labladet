@@ -76,11 +76,11 @@
             
         <div id="wrapper">
             <div class="annonspuff">
-                <h3 class="puff_titel">Titel 1</h3>
-                <p class="puff_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec leo in purus sollicitudin blandit in ut ipsum. Cras placerat, elit eu iaculis laoreet, metus magna congue urna, eget feugiat sapien justo eget lacus</p>
+                <h3 class="puff_titel">{{ Rubrik }}</h3>
+                <p class="puff_text">{{ Ingress }}</p>
             </div>
             
-            <div class="annonspuff">
+            <!--<div class="annonspuff">
                 <h3 class="puff_titel">Titel 2</h3>
                 <p class="puff_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec leo in purus sollicitudin blandit in ut ipsum. Cras placerat, elit eu iaculis laoreet, metus magna congue urna, eget feugiat sapien justo eget lacus</p>
             </div>
@@ -124,6 +124,7 @@
                 <h3 class="puff_titel">Titel 11</h3>
                 <p class="puff_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec leo in purus sollicitudin blandit in ut ipsum. Cras placerat, elit eu iaculis laoreet, metus magna congue urna, eget feugiat sapien justo eget lacus</p>
             </div>
+			-->
             
         </div>
     </body>
