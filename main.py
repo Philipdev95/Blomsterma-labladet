@@ -20,7 +20,17 @@ def css(main):
     print "css:",main
     return static_file(main,root='./static',mimetype='text/css')
     
+<<<<<<< HEAD
+
+=======
+@route("/")
+def start():
+    return template("start")
+>>>>>>> origin/TPL
+
+@route("/article/")
+def article():
+    return template("article")
 
 
 run(host='localhost', port=8080)
-
