@@ -6,7 +6,7 @@
         <title>Blomstermåla dagblad || Philip & Emma</title>
         <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
         <link href="../static/main.css" rel="stylesheet" type="text/css">
-        <script type="text/javascript" src="../static/DBProjekt.js"></script>
+        <script type="text/javascript" src="DBProjekt.js"></script>
     </head>
     <body>
         <header>
@@ -30,15 +30,9 @@
                 % end
             
         </div>
-        <div id="wrapper">
-            % for puff in puffar:
-            <div class="annonspuff">
-            <h3> 
-                <a href="{{ puffar[0] }}">{{ puffar[1] }}</a>
-            </h3>
-                <p>{{ puffar[2] }}</p>
+            <div id="wrapper">
+                <h3>{{ kategori_namn }}</h3>
             </div>
-            % end
         </div>
     </body>
 </html>

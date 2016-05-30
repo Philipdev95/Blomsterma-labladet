@@ -8,7 +8,7 @@
         <link href="../static/main.css" rel="stylesheet" type="text/css">
         <script type="text/javascript" src="DBProjekt.js"></script>
     </head>
-    <body onload="setUp()">
+    <body>
         <header>
             <a class="h1" href="#"><h1 class="h1">Blomstermåla dagblad</h1></a>
         </header>
@@ -16,69 +16,30 @@
             <h3 id="h3meny">MENY</h3>
         </div>
         <div id="menu">
-                <a id="inrikes" class="huvudkategori" href="#" onclick="showHideInr()">
-                    Inrikes
-                </a>
-                <div id="inrikesmenu" class="undermeny">
-                    <a class="underkategori" href="#">Politik</a>
-                    <a class="underkategori" href="#">Nyheter</a>
-                </div>
-            
-                <a id="utrikes" class="huvudkategori" href="#" onclick="showHideUtr()">
-                    Utrikes
-                </a>
-                <div id="utrikesmenu" class="undermeny">
-                    <a class="underkategori" href="#">Politik</a>
-                    <a class="underkategori" href="#">Nyheter</a>
-                </div>
-            
-                <a id="lokalt" class="huvudkategori" href="#" onclick="showHideLok()">
-                    Lokalt
-                </a>
-                <div id="lokaltmenu" class="undermeny">
-                    <a class="underkategori" href="#">Nyheter</a>
-                    <a class="underkategori" href="#">Väder</a>
-                    <a class="underkategori" href="#">Evenemang</a>
-                </div>
-            
-                <a id="kultur" class="huvudkategori" href="#" onclick="showHideKul()">
-                    Kultur
-                </a>
-                <div id="kulturmenu" class="undermeny">
-                    <a class="underkategori" href="#">Musik</a>
-                    <a class="underkategori" href="#">Film</a>
-                    <a class="underkategori" href="#">Teater</a>
-                    <a class="underkategori" href="#">Konst</a>
-                    <a class="underkategori" href="#">Litteratur</a>
-                </div>
-            
-                <a id="sport" class="huvudkategori" href="#" onclick="showHideSpo()">
-                    Sport
-                </a>
-                <div id="sportmenu" class="undermeny">
-                    <a class="underkategori" href="#">Fotboll</a>
-                    <a class="underkategori" href="#">Hockey</a>
-                    <a class="underkategori" href="#">Tennis</a>
-                    <a class="underkategori" href="#">Handboll</a>
-                    <a class="underkategori" href="#">Trav</a>
-                </div>
-                
-                <a id="ekonomi" class="huvudkategori" href="#" onclick="showHideEko()">
-                    Ekonomi
-                </a>
-                <div id="ekonomimenu" class="undermeny">
-                    <a class="underkategori" href="#">Börsen</a>
-                    <a class="underkategori" href="#">Valutor</a>
-                    <a class="underkategori" href="#">Din Ekonomi</a>
-                </div>
-            
+            <% 
+               for rad in allakategori:
+               if rad in huvudkategori:
+            %>
+            <a class="huvudkategori">
+                {{ rad }}</a>
+            % else:
+            <div class="undermeny">
+                <a class="underkategori" href="/kategori/{{ rad }}">{{ rad }}</a>
             </div>
+            % end
+                % end
             
+        </div>
         <div id="wrapper">
-            <div class="annonspuff">
-                <h3 class="puff_titel">Titel 1</h3>
-                <p class="puff_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec leo in purus sollicitudin blandit in ut ipsum. Cras placerat, elit eu iaculis laoreet, metus magna congue urna, eget feugiat sapien justo eget lacus</p>
+            % for stuff in article:
+            <div class="article_annons">
+                <h1>{{ article[0] }}</h1>
+                <p><b>{{ article[1] }}</b></p>
+                <p>{{ article[2] }}</p>
+                <p>{{ article[3] }}</p>
+                <p>{{ article[4] }}</p>
             </div>
+            % end
         </div>
     </body>
 </html>

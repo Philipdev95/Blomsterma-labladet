@@ -20,7 +20,7 @@ header{
 #menybox{
     position: fixed;
     background: rgba(41,165,242,0.85);
-    width: 70px;
+    width: 80px;
     height: 70px;
     display: flex;
     text-align: center;
@@ -37,10 +37,11 @@ header{
     position: fixed;
     background: rgba(0, 0, 0,0.9);
     height: 760px;
-    width: 70px;
+    width: 80px;
     text-align: center;
     top: 70px;
     z-index: 6;
+    overflow: scroll;
 }
 .huvudkategori{
     display: inline-block;
@@ -51,17 +52,12 @@ header{
     text-decoration: none;
     transition: 0.5s;
 }
-.huvudkategori:hover{
-    background: rgba(41,165,242,0.85);
-    color: #fff;
-}
+
 .undermeny{
-    position: fixed;
     background: rgba(0,0,0,0.8);
     text-align: left;
-    display: none;
-    margin-left: 70px;
-    
+    overflow: scroll;
+    max-height: 50px;
 }
 .underkategori{
     display: block;
@@ -74,39 +70,19 @@ header{
     background: rgba(41,165,242,0.85);
     color: #fff;
 }
-#inrikesmenu{
-    top: 70px;
-}
-#utrikesmenu{
-    top: 115px;
-}
-#lokaltmenu{
-    top: 160px;
-}
-#kulturmenu{
-    top: 200px;
-}
-#sportmenu{
-    top: 250px
-}
-#ekonomimenu{
-    top: 295px;
-}
-
 #wrapper{
     width: 78%;
     min-height: 100px;
-    margin-left: 19%;
+    margin-left: 23%;
     text-align: center;
     padding-top: 100px;
 }
 .annonspuff{
-    
-}
-.puff_text{
     text-align: left;
 }
-
+.puff_text{
+    
+}
 
 @media screen and (min-width: 700px){
     .annonspuff{
@@ -115,16 +91,3 @@ header{
         margin: 1%;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
