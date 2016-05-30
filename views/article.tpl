@@ -8,7 +8,7 @@
         <link href="../static/main.css" rel="stylesheet" type="text/css">
         <script type="text/javascript" src="DBProjekt.js"></script>
     </head>
-    <body onload="setUp()">
+    <body>
         <header>
             <a class="h1" href="#"><h1 class="h1">Blomstermåla dagblad</h1></a>
         </header>
@@ -16,6 +16,7 @@
             <h3 id="h3meny">MENY</h3>
         </div>
         <div id="menu">
+<<<<<<< HEAD
             % for huvud in kategori:
             <a id="inrikes" class="huvudkategori" href="#" onclick="showHideInr()">
                 {{huvud}}</a>
@@ -38,7 +39,32 @@
                 <p>{{ puffar[4] }}</p>
                 <p>{{ puffar[1] }}</p>
                 <p>{{ puffar[2] }}</p>
+=======
+            <% 
+               for rad in allakategori:
+               if rad in huvudkategori:
+            %>
+            <a class="huvudkategori">
+                {{ rad }}</a>
+            % else:
+            <div class="undermeny">
+                <a class="underkategori" href="/kategori/{{ rad }}">{{ rad }}</a>
             </div>
+            % end
+                % end
+            
+        </div>
+        <div id="wrapper">
+            % for stuff in article:
+            <div class="article_annons">
+                <h1>{{ article[0] }}</h1>
+                <p><b>{{ article[1] }}</b></p>
+                <p>{{ article[2] }}</p>
+                <p>{{ article[3] }}</p>
+                <p>{{ article[4] }}</p>
+>>>>>>> origin/TPL
+            </div>
+            % end
         </div>
     </body>
 </html>
