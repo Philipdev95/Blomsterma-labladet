@@ -27,8 +27,7 @@
                 <a class="underkategori" href="/kategori/{{ rad }}">{{ rad }}</a>
             </div>
             % end
-                % end
-            
+                % end      
         </div>
         <div id="wrapper">
             % for stuff in article:
@@ -40,6 +39,11 @@
                 <p>{{ article[4] }}</p>
             </div>
             % end
-        </div>
+			<!--<label for="author">Namn: </label>
+			<input type="text" id="author">
+			<label for="comment">Kommentar: </label>
+			<textarea rows="4" cols="20" id="comment"></textarea>
+			-->
+		</div>
     </body>
 </html>
