@@ -9,7 +9,7 @@ cursor = db.cursor()
     
 @route("/")
 def print_puff():
-    cursor.execute("select ArtID, Rubrik, Ingress from artiklar")
+    cursor.execute("select ArtID, Rubrik, Ingress from artiklar limit 4")
     puffar = cursor.fetchall()
     menu = show_menu()
     allameny = all_categories(menu)
@@ -37,11 +37,15 @@ def comment(ArtID):
 def underkategorier(underkategori):
     cursor.execute("select artiklar.artID, artiklar.Rubrik, artiklar.Ingress from artiklar inner join underkategori on artiklar.underkategori = underkategori.IDnr where underkategori.UKnamn ='" + underkategori + "'")
     puffar = cursor.fetchall()
-    cursor.execute("select UKnamn from underkategori where underkategori.UKnamn ='" + underkategori + "'")
+    cursor.execute("select distinct UKnamn from underkategori where underkategori.UKnamn ='" + underkategori + "'")
     kategori_namn = cursor.fetchall()
+    name_list = []
+    for row in kategori_namn:
+        for item in row:
+            name_list.append(item)
     menu = show_menu()
     allamenu = all_categories(menu)
-    return template("category", puffar = puffar, huvudkategori = menu, allakategori = allamenu, kategori_namn = kategori_namn)
+    return template("category", puffar = puffar, huvudkategori = menu, allakategori = allamenu, kategori_namn = name_list)
     
 def show_menu():
     cursor.execute("select distinct Kategori from underkategori")

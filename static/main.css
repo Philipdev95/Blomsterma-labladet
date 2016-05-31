@@ -20,7 +20,7 @@ header{
 #menybox{
     position: fixed;
     background: rgba(41,165,242,0.85);
-    width: 80px;
+    width: 100px;
     height: 70px;
     display: flex;
     text-align: center;
@@ -37,7 +37,7 @@ header{
     position: fixed;
     background: rgba(0, 0, 0,0.9);
     height: 760px;
-    width: 80px;
+    width: 100px;
     text-align: center;
     top: 70px;
     z-index: 6;
@@ -51,6 +51,7 @@ header{
     color: #fff;
     text-decoration: none;
     transition: 0.5s;
+	font-size: 20px;
 }
 
 .undermeny{
@@ -73,7 +74,7 @@ header{
 #wrapper{
     width: 78%;
     min-height: 100px;
-    margin-left: 23%;
+    margin-left: 18%;
     text-align: center;
     padding-top: 100px;
 }

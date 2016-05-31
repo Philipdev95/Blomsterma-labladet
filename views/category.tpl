@@ -10,7 +10,7 @@
     </head>
     <body>
         <header>
-            <a class="h1" href="#"><h1 class="h1">Blomstermåla dagblad</h1></a>
+            <a class="h1" href="/"><h1 class="h1">Blomstermåla dagblad</h1></a>
         </header>
         <div id="menybox">
             <h3 id="h3meny">MENY</h3>
@@ -31,7 +31,9 @@
             
         </div>
         <div id="wrapper">
-            <h3>{{ kategori_namn }}</h3>
+			% for item in kategori_namn:
+            <h3>{{ item }}</h3>
+			% end
 			% for puff in puffar:
 				<div class="annonspuff">
 					<h3> 

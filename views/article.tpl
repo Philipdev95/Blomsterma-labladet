@@ -10,7 +10,7 @@
     </head>
     <body>
         <header>
-            <a class="h1" href="#"><h1 class="h1">Blomstermåla dagblad</h1></a>
+            <a class="h1" href="/"><h1 class="h1">Blomstermåla dagblad</h1></a>
         </header>
         <div id="menybox">
             <h3 id="h3meny">MENY</h3>
@@ -39,13 +39,17 @@
                 <p>{{ item[4] }}</p>
             </div>
 			% end
+			<h3>Kommentera: </h3>
 			<form action="/comment/{{ item[5] }}" method="POST">
 				<label for="author">Namn: </label>
 				<input type="text" name="author" id="author">
+				<br><br>
 				<label for="comment_text">Kommentar: </label>
-				<textarea rows="4" cols="20" name="comment_text" id="comment_text"></textarea>
+				<textarea rows="4" cols="100" name="comment_text" id="comment_text"></textarea>
+				<br>
 				<input type="submit" value="Skicka">
 			</form>
+			<h3>Kommentarer</h3>
 			% for item in kommentarer:
             <div class="article_annons">
                 <h3>{{ item[0] }}</h3>
