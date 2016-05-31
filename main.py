@@ -3,7 +3,8 @@ import MySQLdb
 import bottle
 from bottle import route, run, template, Bottle, request, redirect, static_file
 
-db = MySQLdb.connect(host="195.178.232.16", user="af8473", db="af8473", passwd="Admin12345", charset="utf8")
+#db = MySQLdb.connect(host="195.178.232.16", user="af8473", db="af8473", passwd="Admin12345", charset="utf8")
+db = MySQLdb.connect(host="localhost", user="root", db="projekt", passwd="hejhej123", charset="utf8")
 cursor = db.cursor()
     
 @route("/")
@@ -16,12 +17,21 @@ def print_puff():
 
 @route("/<artikelnamn>")
 def article(artikelnamn):
-    cursor.execute("select Rubrik, Datum, Ingress, Brodtext, forfattare from Artiklar where ArtID ='" + artikelnamn + "'")
+    cursor.execute("select Rubrik, Datum, Ingress, Brodtext, Forfattare, ArtID from Artiklar where ArtID ='" + artikelnamn + "'")
     artiklar = cursor.fetchall()
-    print artiklar
+    cursor.execute("select kommentar.Kommentarforfattare, kommentar.Kommentar from kommentar where kommentar.ArtID ='" + artikelnamn + "'")
+    kommentarer = cursor.fetchall()
     menu = show_menu()
     allameny = all_categories(menu)
-    return template("article", huvudkategori = menu, allakategori = allameny, article = artiklar)
+    return template("article", kommentarer = kommentarer, huvudkategori = menu, allakategori = allameny, article = artiklar)
+
+@route("/comment/<ArtID>", method = "POST")
+def comment(ArtID):
+    comment_author = request.forms.get("author")
+    comment_text = request.forms.get("comment_text")
+    cursor.execute("""insert into kommentar (Kommentar, Kommentarforfattare, ArtID) values('{}', '{}','{}')""".format(comment_text, comment_author, ArtID))
+    db.commit()
+    redirect("/" + ArtID)
 
 @route("/kategori/<underkategori>")
 def underkategorier(underkategori):

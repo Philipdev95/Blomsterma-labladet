@@ -33,17 +33,25 @@
 			% for item in article:
             <div class="article_annons">
                 <h1>{{ item[0] }}</h1>
-                <p><b>{{ item[1] }}</b></p>
+                <p>{{ item[1] }}</p>
                 <p>{{ item[2] }}</p>
                 <p>{{ item[3] }}</p>
                 <p>{{ item[4] }}</p>
             </div>
 			% end
-			<!--<label for="author">Namn: </label>
-			<input type="text" id="author">
-			<label for="comment">Kommentar: </label>
-			<textarea rows="4" cols="20" id="comment"></textarea>
-			-->
+			<form action="/comment/{{ item[5] }}" method="POST">
+				<label for="author">Namn: </label>
+				<input type="text" name="author" id="author">
+				<label for="comment_text">Kommentar: </label>
+				<textarea rows="4" cols="20" name="comment_text" id="comment_text"></textarea>
+				<input type="submit" value="Skicka">
+			</form>
+			% for item in kommentarer:
+            <div class="article_annons">
+                <h3>{{ item[0] }}</h3>
+                <p>{{ item[1] }}</p>
+            </div>
+			% end
 		</div>
     </body>
 </html>
