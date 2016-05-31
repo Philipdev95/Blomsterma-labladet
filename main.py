@@ -19,7 +19,7 @@ def print_puff():
 def article(artikelnamn):
     cursor.execute("select Rubrik, Datum, Ingress, Brodtext, Forfattare, ArtID from Artiklar where ArtID ='" + artikelnamn + "'")
     artiklar = cursor.fetchall()
-    cursor.execute("select kommentar.Kommentarforfattare, kommentar.Kommentar from kommentar where kommentar.ArtID ='" + artikelnamn + "'")
+    cursor.execute("select kommentar.Kommentarforfattare, kommentar.Kommentar from kommentar where kommentar.kommentarid ='" + artikelnamn + "'")
     kommentarer = cursor.fetchall()
     menu = show_menu()
     allameny = all_categories(menu)
@@ -29,7 +29,7 @@ def article(artikelnamn):
 def comment(ArtID):
     comment_author = request.forms.get("author")
     comment_text = request.forms.get("comment_text")
-    cursor.execute("""insert into kommentar (Kommentar, Kommentarforfattare, ArtID) values('{}', '{}','{}')""".format(comment_text, comment_author, ArtID))
+    cursor.execute("insert into kommentar (Kommentar, Kommentarforfattare, ArtID) values('{}', '{}','{}')".format(comment_text, comment_author, ArtID))
     db.commit()
     redirect("/" + ArtID)
 
