@@ -8,39 +8,30 @@ cursor = db.cursor()
     
 @route("/")
 def print_puff():
-    cursor.execute("select distinct ArtID, Rubrik, Ingress from artiklar")
+    cursor.execute("select ArtID, Rubrik, Ingress from artiklar")
     puffar = cursor.fetchall()
-    puff_list = []
-    for row in puffar:
-        for item in row:
-            puff_list.append(item)
     menu = show_menu()
     allameny = all_categories(menu)
-    return template("start.tpl", puffar = puff_list, huvudkategori = menu, allakategori = allameny)
+    return template("start.tpl", puffar = puffar, huvudkategori = menu, allakategori = allameny)
 
 @route("/<artikelnamn>")
 def article(artikelnamn):
     cursor.execute("select Rubrik, Datum, Ingress, Brodtext, forfattare from Artiklar where ArtID ='" + artikelnamn + "'")
+    artiklar = cursor.fetchall()
+    print artiklar
     menu = show_menu()
     allameny = all_categories(menu)
-    artiklar = cursor.fetchall()
-    article_list = []
-    for row in artiklar:
-        for item in row:
-            article_list.append(item)
-    return template("article", huvudkategori = menu, allakategori = allameny, article = article_list)
+    return template("article", huvudkategori = menu, allakategori = allameny, article = artiklar)
 
 @route("/kategori/<underkategori>")
 def underkategorier(underkategori):
-    cursor.execute("select UKnamn from underkategori where UKnamn ='" + underkategori + "'")
+    cursor.execute("select artiklar.artID, artiklar.Rubrik, artiklar.Ingress from artiklar inner join underkategori on artiklar.underkategori = underkategori.IDnr where underkategori.UKnamn ='" + underkategori + "'")
+    puffar = cursor.fetchall()
+    cursor.execute("select UKnamn from underkategori where underkategori.UKnamn ='" + underkategori + "'")
     kategori_namn = cursor.fetchall()
     menu = show_menu()
     allamenu = all_categories(menu)
-    UK_list = []
-    for UK in underkategori:
-        for i in UK:
-            UK_list.append(i)
-    return template("category", huvudkategori = menu, allakategori = allamenu, kategori_namn = kategori_namn)
+    return template("category", puffar = puffar, huvudkategori = menu, allakategori = allamenu, kategori_namn = kategori_namn)
     
 def show_menu():
     cursor.execute("select distinct Kategori from underkategori")
@@ -55,13 +46,11 @@ def all_categories(menu):
     allkat_list = []
     for huvud in menu:
         cursor.execute("select distinct UKnamn from underkategori where Kategori='" + huvud + "'")
-        print huvud
         allkat_list.append(huvud)
         allakategorier = cursor.fetchall()
         for UKnamn in allakategorier:
             for item in UKnamn:
                 allkat_list.append(item)
-                print item
     return allkat_list
 
 

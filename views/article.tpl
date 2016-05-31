@@ -30,15 +30,15 @@
                 % end      
         </div>
         <div id="wrapper">
-            % for stuff in article:
+			% for item in article:
             <div class="article_annons">
-                <h1>{{ article[0] }}</h1>
-                <p><b>{{ article[1] }}</b></p>
-                <p>{{ article[2] }}</p>
-                <p>{{ article[3] }}</p>
-                <p>{{ article[4] }}</p>
+                <h1>{{ item[0] }}</h1>
+                <p><b>{{ item[1] }}</b></p>
+                <p>{{ item[2] }}</p>
+                <p>{{ item[3] }}</p>
+                <p>{{ item[4] }}</p>
             </div>
-            % end
+			% end
 			<!--<label for="author">Namn: </label>
 			<input type="text" id="author">
 			<label for="comment">Kommentar: </label>

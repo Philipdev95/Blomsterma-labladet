@@ -30,9 +30,17 @@
                 % end
             
         </div>
-            <div id="wrapper">
-                <h3>{{ kategori_namn }}</h3>
-            </div>
+        <div id="wrapper">
+            <h3>{{ kategori_namn }}</h3>
+			% for puff in puffar:
+				<div class="annonspuff">
+					<h3> 
+						<a href="/{{ puff[0] }}">{{ puff[1] }}</a>
+					</h3>
+					<p>{{ puff[2] }}</p>
+				</div>
+            % end
+        </div>
         </div>
     </body>
 </html>

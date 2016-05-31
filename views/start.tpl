@@ -34,9 +34,9 @@
             % for puff in puffar:
             <div class="annonspuff">
             <h3> 
-                <a href="{{ puffar[0] }}">{{ puffar[1] }}</a>
+                <a href="/{{ puff[0] }}">{{ puff[1] }}</a>
             </h3>
-                <p>{{ puffar[2] }}</p>
+                <p>{{ puff[2] }}</p>
             </div>
             % end
         </div>
