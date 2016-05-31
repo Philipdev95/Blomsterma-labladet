@@ -73,9 +73,14 @@ header{
 #wrapper{
     width: 78%;
     min-height: 100px;
-    margin-left: 23%;
+    margin-left: 21%;
     text-align: center;
     padding-top: 100px;
+}
+@media screen and (min-width: 700px){
+    #wrapper{
+        margin-left: 11%;
+    }
 }
 .annonspuff{
     text-align: left;
