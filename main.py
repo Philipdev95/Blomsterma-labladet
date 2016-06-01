@@ -3,8 +3,8 @@ import MySQLdb
 import bottle
 from bottle import route, run, template, Bottle, request, redirect, static_file
 
-#db = MySQLdb.connect(host="195.178.232.16", user="af8473", db="af8473", passwd="Admin12345", charset="utf8")
-db = MySQLdb.connect(host="localhost", user="root", db="projekt", passwd="hejhej123", charset="utf8")
+db = MySQLdb.connect(host="195.178.232.16", user="af8473", db="af8473", passwd="Admin12345", charset="utf8")
+#db = MySQLdb.connect(host="localhost", user="root", db="projekt", passwd="hejhej123", charset="utf8")
 cursor = db.cursor()
     
 @route("/")
